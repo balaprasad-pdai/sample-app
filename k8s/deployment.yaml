@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: yourusername/sample-app:v1.0.0
+        image: populardigitalai/sample-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
