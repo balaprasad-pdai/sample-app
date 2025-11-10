@@ -17,26 +17,8 @@ spec:
     spec:
       containers:
         - name: sample-app
-          # Using Docker Hub image provided by the user. Change the tag if needed.
-          image: digitalocean/doks-example
+          image: saitadikonda99/my-react-app:latest
+          imagePullPolicy: Always
           ports:
-            - containerPort: 5173
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 5173
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 5173
-            initialDelaySeconds: 15
-            periodSeconds: 20
-          resources:
-            limits:
-              cpu: "500m"
-              memory: "256Mi"
-            requests:
-              cpu: "100m"
-              memory: "128Mi"
+            - containerPort: 80
+
