@@ -19,7 +19,6 @@ spec:
         - name: sample-app
           # Using Docker Hub image provided by the user. Change the tag if needed.
           image: populardigitalai/sample-app
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5173
           readinessProbe:
