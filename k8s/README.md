@@ -1,21 +1,22 @@
 Kubernetes manifests for the sample-app
 
 Files:
-- namespace.yaml  : Namespace `sample-app`
-- deployment.yaml : Deployment with 2 replicas (placeholder image)
-- service.yaml    : ClusterIP service mapping port 80 -> container 5173
-- ingress.yaml    : Ingress using host `sample-app.example.com` (replace host)
+- `namespace.yaml`  : Namespace `sample-app`
+- `deployment.yaml` : Deployment with 2 replicas (placeholder image)
+- `service.yaml`    : ClusterIP service mapping port 80 -> container 5173
+- `ingress.yaml`    : Ingress configured for host `massimo.global`
 
-- Quick customize:
-- If you're using the Docker Hub image you mentioned, the manifest already references:
--
-- ```yaml
-- image: populardigitalai/sample-app:latest
-- ```
--
+Quick customize:
+- The `deployment.yaml` uses the Docker Hub image:
+
+```yaml
+image: populardigitalai/sample-app:latest
+```
+
 - To use a different tag (recommended for releases), update the tag portion, e.g.
-- `populardigitalai/sample-app:v1.2.3`.
-- Update `ingress.yaml` host to your real domain and TLS if needed.
+	`populardigitalai/sample-app:v1.2.3`.
+- The ingress is intentionally configured without TLS/SSL in this repo. If you prefer
+	to run with HTTPS later, you can add TLS and cert-manager configuration separately.
 
 Apply to cluster:
 
@@ -29,7 +30,5 @@ kubectl apply -f k8s/ingress.yaml -n sample-app
 Or apply the whole folder:
 
 ```bash
-kubectl apply -k k8s/   # if you add kustomization.yaml
-# or
 kubectl apply -R -f k8s/
 ```
