@@ -8,6 +8,7 @@ spec:
   selector:
     app.kubernetes.io/name: sample-app
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 5173
       protocol: TCP
