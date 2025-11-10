@@ -18,7 +18,7 @@ spec:
       containers:
         - name: sample-app
           # Using Docker Hub image provided by the user. Change the tag if needed.
-          image: populardigitalai/sample-app
+          image: digitalocean/doks-example
           ports:
             - containerPort: 5173
           readinessProbe:
