@@ -17,8 +17,26 @@ spec:
     spec:
       containers:
         - name: sample-app
-          image: populardigitalai/sample-app:latest
-          imagePullPolicy: Always
+          # Using Docker Hub image provided by the user. Change the tag if needed.
+          image: populardigitalai/sample-app
           ports:
-            - containerPort: 80
-
+            - containerPort: 5173
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5173
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5173
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
