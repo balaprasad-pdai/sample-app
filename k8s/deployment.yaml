@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-      containers:
+containers:
         - name: sample-app
           # Using Docker Hub image provided by the user. Change the tag if needed.
           image: populardigitalai/sample-app:latest
