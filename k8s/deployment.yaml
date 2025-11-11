@@ -19,6 +19,9 @@ spec:
       - name: sample-app
         image: populardigitalai/sample-app:latest
         imagePullPolicy: Always
+        env:
+        - name: VITE_API_URL
+          value: "https://api.massimo.global"
         ports:
         - containerPort: 80
           protocol: TCP
